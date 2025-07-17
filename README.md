@@ -1,88 +1,109 @@
-<<<<<<< HEAD
-# Matt Snow - Personal Website
+# 🌥️ Cloud Resume Challenge
 
-A clean, minimalist personal website built with HTML and CSS for the Cloud Resume Challenge.
+> 📝 **Note to Self:** This write-up will be adapted into a [Dev.to](https://dev.to) blog post. Keep sections narrative, include visuals, and explain decisions for beginner-to-intermediate readers.
 
-## Features
+---
 
-- Responsive design that works on all devices
-- Clean, modern aesthetic matching the original Hugo design
-- Easy to customize and deploy
-- Static files perfect for S3 hosting
+## 📌 Table of Contents
+- [Benefits of the Challenge](#benefits-of-the-challenge)
+- [Challenge Stages](#challenge-stages)
+  - [Stage 0 - Certification](#stage-0---certification)
+  - [Stage 1 - Creating Front End](#stage-1---creating-front-end)
+  - [Stage 2 - Building the API](#stage-2---building-the-api)
+  - [Stage 3 - Frontend & Backend Integration](#stage-3---frontend--backend-integration)
+  - [Stage 4 - Automation & CI/CD](#stage-4---automation--cicd)
+    - [Smoke Testing with Cypress](#smoke-testing-with-cypress)
+  - [Stage 5 - Security Hardening](#stage-5---security-hardening)
+- [AI/ML Extensions (Future Ideas)](#aiml-extensions-future-ideas)
 
-## Files
+---
 
-- `index.html` - Main website content
-- `styles.css` - All styling and responsive design
-- `README.md` - This file
+## ✅ Benefits of the Challenge
+<!-- Placeholder: Write about why you're doing the challenge — learning IaC, proving end-to-end cloud fluency, etc. -->
 
-## Customization
+---
 
-### Update Personal Information
-Edit `index.html` to update:
-- Your name
-- Professional titles
-- Skills and keywords
-- Social media links
-- Email address
+## 🚀 Challenge Stages
 
-### Update Profile Image
-Replace the placeholder image URL in `index.html`:
-```html
-<img src="your-image-url.jpg" alt="Your Name">
-```
+### Stage 0 - Certification
+<!-- Placeholder: Mention AWS certification you've earned or are studying for -->
 
-### Update Colors
-Modify `styles.css` to change the color scheme:
-- Background: `#f8f9fa`
-- Text: `#333`
-- Navigation links: `#8b4513`
+---
 
-## Deployment to S3
+### Stage 1 - Creating Front End
+- **1.1 HTML** – basic static site structure  
+- **1.2 CSS** – custom theme and styling  
+- **1.3 JavaScript** – interactive elements (e.g. visitor counter)  
+- **1.4 Static Assets via S3** – Hugo-generated site uploaded to S3  
+- **1.5 CDN via CloudFront** – fast delivery with HTTPS and caching  
 
-1. **Create S3 Bucket:**
-   - Create a new S3 bucket
-   - Enable "Static website hosting"
-   - Set index document to `index.html`
+---
 
-2. **Upload Files:**
-   - Upload `index.html` and `styles.css` to your S3 bucket
-   - Make sure files are publicly readable
+### Stage 2 - Building the API
+- **2.1 DynamoDB** – stores and retrieves visitor count  
+- **2.2 API Gateway** – REST endpoint to expose the backend  
+- **2.3 Lambda (Python)** – serverless logic to update/view count  
 
-3. **Configure Bucket Policy:**
-   ```json
-   {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Sid": "PublicReadGetObject",
-               "Effect": "Allow",
-               "Principal": "*",
-               "Action": "s3:GetObject",
-               "Resource": "arn:aws:s3:::your-bucket-name/*"
-           }
-       ]
-   }
-   ```
+---
 
-4. **Access Your Website:**
-   - Use the S3 website endpoint: `http://your-bucket-name.s3-website-region.amazonaws.com`
-   - Or configure a custom domain with CloudFront
+### Stage 3 - Frontend & Backend Integration
+- **3.1 Visitor Counter** – fetches count via JS, displays on resume  
+- (Optional future: more dynamic sections using API or JSON)
 
-## Local Development
+---
 
-Simply open `index.html` in your web browser to preview the website locally.
+### Stage 4 - Automation & CI/CD
+- **4.1 Infrastructure as Code (Terraform)** – full IaC setup for S3, CloudFront, IAM, etc.  
+- **4.2 CI/CD with GitHub Actions** – auto-deploy Hugo site + backend on commit  
+- **4.3 Monitoring & Logging** – CloudWatch for Lambda + API Gateway  
+- **4.4 Smoke Testing with Cypress**  
+  - Run Cypress tests after deployment  
+  - Test homepage loads, counter element is present  
+  - Potential GitHub Actions integration step
 
-## Browser Compatibility
+---
 
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers
+### Stage 5 - Security Hardening 🛡️
+> Learning DNSSEC and other security practices through hands-on experimentation.
 
-## License
+- **5.1 DNSSEC**  
+  - Placeholder: Enabled in Route 53 for domain integrity  
+- **5.2 HTTPS Everywhere**  
+  - Placeholder: Enforced with CloudFront + ACM cert  
+- **5.3 S3 Bucket Policies**  
+  - Placeholder: Block public access, use OAI or OAC  
+- **5.4 IAM Role Minimization**  
+  - Placeholder: Tight permissions on Lambda + GitHub deploy roles  
+- **5.5 HTTP Security Headers**  
+  - Placeholder: Use Lambda@Edge or CloudFront settings  
+- **5.6 WAF / Bot Protection**  
+  - Placeholder: AWS WAF for rate-limiting or bot filtering  
+- **5.7 Vulnerability Scanning**  
+  - Placeholder: Add static/dynamic scan step to CI (Snyk, CodeQL, etc.)  
+- **5.8 Audit Logging**  
+  - Placeholder: Enable CloudTrail + structured Lambda logs
 
-© 2024. Panjim Goa. Some Rights Reserved. 
-=======
-# Cloud-Resume-Project-2025
->>>>>>> 5d8418f0083af6830b0851000ee9920bb09a6504
+---
+
+## 🧠 AI/ML Extensions (Future Ideas)
+
+> You’ve decided to finish the base version first, but here are the brainstormed ideas to return to later.
+
+- **Interactive Q&A Resume Assistant**  
+  - Visitors ask questions like "What’s your strongest project?"  
+  - Powered by Bedrock (Claude/Titan) + vector search
+
+- **Job-Aware Cover Letter Generator**  
+  - Paste job listing → get a tailored blurb using your resume content
+
+- **Daily Visitor Log Summarizer using LLM**  
+  - Lambda sends Bedrock-generated summary of logs to you via email/SNS
+
+- **Bot Detection or Anomaly Detection**  
+  - Use SageMaker Random Cut Forest or Lookout for Metrics  
+  - Block suspicious IPs with AWS WAF
+
+- **Smart Forecasting or Traffic Clustering**  
+  - Segment user behavior or predict future traffic with SageMaker
+
+---

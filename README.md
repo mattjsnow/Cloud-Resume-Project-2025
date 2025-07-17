@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Matt Snow - Personal Website
 
 A clean, minimalist personal website built with HTML and CSS for the Cloud Resume Challenge.
@@ -82,3 +83,6 @@ Simply open `index.html` in your web browser to preview the website locally.
 ## License
 
 © 2024. Panjim Goa. Some Rights Reserved. 
+=======
+# Cloud-Resume-Project-2025
+>>>>>>> 5d8418f0083af6830b0851000ee9920bb09a6504

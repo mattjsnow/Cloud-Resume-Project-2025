@@ -10,6 +10,28 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 </head>
+
+<script>
+  fetch('https://your-api-id.execute-api.us-east-1.amazonaws.com/prod/visitor-count')  // 🔁 Replace with your actual API Gateway URL
+    .then(response => response.json())
+    .then(data => {
+      const count = data.visitCount;
+
+      const counterElement = document.createElement("div");
+      counterElement.textContent = `Visitor count: ${count}`;
+      counterElement.style.textAlign = "center";
+      counterElement.style.marginTop = "20px";
+      counterElement.style.fontWeight = "bold";
+      counterElement.style.fontSize = "16px";
+
+      document.body.appendChild(counterElement);
+    })
+    .catch(error => console.error("Error fetching visitor count:", error));
+</script>
+
+
+
+
 <body>
     <div class="container min-vh-100 d-flex align-items-center justify-content-center">
         <div class="text-center">

@@ -1,0 +1,16 @@
+{
+  "TableName": "visitorCount",
+  "KeySchema": [
+    {
+      "AttributeName": "counterID",
+      "KeyType": "HASH"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "counterID",
+      "AttributeType": "S"
+    }
+  ],
+  "BillingMode": "PAY_PER_REQUEST"
+}
